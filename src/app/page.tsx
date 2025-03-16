@@ -170,6 +170,12 @@ export default function Home() {
             .run();
           stickyNoteRef.current?.hide();
           break;
+        case "bold":
+          setShowBlock(false);
+          bubbleRef.current?.hideButton();
+          editorInstance.chain().focus().selectAll().toggleBold().run();
+          stickyNoteRef.current?.hide();
+          break;
         case "killSticky":
           setShowBlock(false);
           bubbleRef.current?.hideButton();
@@ -233,6 +239,7 @@ export default function Home() {
           "leetspeak",
           "emojiConvert",
           "sponsor",
+          "bold",
         ];
         let randomEvent = events[Math.floor(Math.random() * events.length)];
 
@@ -298,6 +305,17 @@ export default function Home() {
                 bubbleRef.current?.show();
                 bubbleRef.current?.setText(
                   "It looks like you’re trying to make original content. Accept sponsorship?",
+                );
+                setTimeout(() => {
+                  bubbleRef.current?.showButton();
+                }, 1000);
+                break;
+              case "bold":
+                setShowBlock(true);
+                editorInstance.commands.blur();
+                bubbleRef.current?.show();
+                bubbleRef.current?.setText(
+                  "Your writing style is weak and indirect, would you like to make it more bold?",
                 );
                 setTimeout(() => {
                   bubbleRef.current?.showButton();
