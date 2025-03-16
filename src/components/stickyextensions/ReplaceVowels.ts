@@ -36,7 +36,7 @@ export const ReplaceVowels = Extension.create({
                 vowels[Math.floor(Math.random() * vowels.length)];
               const randomChance = Math.random();
 
-              if (randomChance < 0.1) {
+              if (randomChance < 0.2) {
                 tr.insertText(randomVowel, from, to);
               }
             }

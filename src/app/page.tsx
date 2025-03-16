@@ -214,7 +214,7 @@ export default function Home() {
           setStickyNoteReady(true);
           bubbleRef.current?.hide();
           stickyNoteRef.current?.hide();
-        }, 4000);
+        }, 7000);
       }, 5000);
     }, 7000);
 
