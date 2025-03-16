@@ -244,7 +244,7 @@ export default function Home() {
         let randomEvent = events[Math.floor(Math.random() * events.length)];
 
         if (!deadSticky) {
-          while (eventsHappened.includes(randomEvent) && eventCount < 4) {
+          while (eventsHappened.includes(randomEvent) && eventCount < 5) {
             randomEvent = events[Math.floor(Math.random() * events.length)];
           }
 
@@ -253,7 +253,7 @@ export default function Home() {
           setTimeout(() => {
             console.log(eventCount);
 
-            if (eventCount >= 4) {
+            if (eventCount >= 5) {
               randomEvent = "killSticky";
             }
 
