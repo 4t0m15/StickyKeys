@@ -207,7 +207,7 @@ export default function Home() {
       setTimeout(() => {
         bubbleRef.current?.show();
         bubbleRef.current?.setText(
-          "Hi I'm Sticky Note! First name Sticky Last name Note",
+          "Hey there! I'm Sticky the sticky note! I'm here to help you make your writing the best it can be. I'll pop up to give you some tips from time to time, so I'll see you again soon!",
         );
         //wait for the typing to finish
         setTimeout(() => {
@@ -273,7 +273,7 @@ export default function Home() {
                 setShowBlock(true);
                 bubbleRef.current?.show();
                 bubbleRef.current?.setText(
-                  "This writing sucks dude, get with the times. Wanna fix it?",
+                  "This writing isn't very epic, dude. Get with the times. Wanna fix it?",
                 );
                 setTimeout(() => {
                   bubbleRef.current?.showButton();
@@ -302,7 +302,7 @@ export default function Home() {
               case "killSticky":
                 setShowBlock(true);
                 bubbleRef.current?.setText(
-                  "Please don't kill me i have a family :(",
+                  "H-hey, be careful! if you click this button, I'll die!! :(",
                 );
                 setTimeout(() => {
                   bubbleRef.current?.showButton();
