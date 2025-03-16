@@ -309,12 +309,12 @@ export default function Home() {
                 }, 1000);
                 break;
             }
-          }, 15000);
+          }, 1000);
 
           //bubbleRef.current?.show();
         }
       }
-    }, 15000);
+    }, 13000);
 
     return () => clearInterval(interval);
   }, [
