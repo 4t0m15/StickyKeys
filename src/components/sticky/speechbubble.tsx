@@ -157,7 +157,7 @@ const SpeechBubble = forwardRef<SpeechBubbleRef, SpeechBubbleProps>(
               if (onYesClick) onYesClick();
             }}
             className={cn(
-              "absolute bottom-[30px] right-auto",
+              "absolute bottom-[30px] right-auto ",
               showButton ? "block" : "hidden",
             )}
             style={{
@@ -173,7 +173,7 @@ const SpeechBubble = forwardRef<SpeechBubbleRef, SpeechBubbleProps>(
               padding: "0 12px",
             }}
           >
-            YES!!!
+            OK
           </button>
         </div>
         {/* button to click for the effect to happen. when this button is clicked the current sticky event will activate */}

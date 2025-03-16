@@ -260,6 +260,7 @@ export default function Home() {
 
             switch (randomEvent) {
               case "randomizeVowels":
+                editorInstance.commands.blur();
                 setShowBlock(true);
                 bubbleRef.current?.show();
                 bubbleRef.current?.setText(
@@ -270,6 +271,7 @@ export default function Home() {
                 }, 1000);
                 break;
               case "leetspeak":
+                editorInstance.commands.blur();
                 setShowBlock(true);
                 bubbleRef.current?.show();
                 bubbleRef.current?.setText(
@@ -280,6 +282,7 @@ export default function Home() {
                 }, 1000);
                 break;
               case "emojiConvert":
+                editorInstance.commands.blur();
                 setShowBlock(true);
                 bubbleRef.current?.show();
                 bubbleRef.current?.setText(
@@ -291,6 +294,7 @@ export default function Home() {
                 break;
               case "sponsor":
                 setShowBlock(true);
+                editorInstance.commands.blur();
                 bubbleRef.current?.show();
                 bubbleRef.current?.setText(
                   "It looks like you’re trying to make original content. Accept sponsorship?",
@@ -300,7 +304,9 @@ export default function Home() {
                 }, 1000);
                 break;
               case "killSticky":
+                editorInstance.commands.blur();
                 setShowBlock(true);
+                stickyNoteRef.current?.showPlea();
                 bubbleRef.current?.setText(
                   "H-hey, be careful! if you click this button, I'll die!! :(",
                 );
