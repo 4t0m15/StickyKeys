@@ -9,6 +9,8 @@ import {
 } from "react";
 import { cn } from "@/lib/utils";
 
+import "@/app/style.css";
+
 // Define dialogue options in JSON format
 const defaultDialogues = [
   "Hi! I'm Sticky Note, first name Sticky, last name Note",
@@ -29,6 +31,8 @@ export type SpeechBubbleRef = {
   showRandomText: () => void;
   hide: () => void;
   show: () => void;
+  showButton: () => void;
+  hideButton: () => void;
 };
 
 interface SpeechBubbleProps {
@@ -53,6 +57,7 @@ const SpeechBubble = forwardRef<SpeechBubbleRef, SpeechBubbleProps>(
     ref,
   ) => {
     const [showBubble, setShowBubble] = useState(autoShow);
+    const [showButton, setShowButton] = useState(false);
     const [currentText, setCurrentText] = useState("");
     const [isTyping, setIsTyping] = useState(false);
     const fullTextRef = useRef(initialText || dialogues[0]);
@@ -77,6 +82,12 @@ const SpeechBubble = forwardRef<SpeechBubbleRef, SpeechBubbleProps>(
       },
       show: () => {
         setShowBubble(true);
+      },
+      showButton: () => {
+        setShowButton(true);
+      },
+      hideButton: () => {
+        setShowButton(false);
       },
     }));
 
@@ -133,18 +144,34 @@ const SpeechBubble = forwardRef<SpeechBubbleRef, SpeechBubbleProps>(
           unoptimized
           style={{ imageRendering: "pixelated" }}
         />
-        <div className="absolute top-0 left-0 w-full h-full p-4">
-          <p className="text-gray-800 text-sm" style={{ fontSmooth: "never" }}>
+        <div className="absolute top-0 left-0 w-full h-full p-4 window nintyeight">
+          <p className="nintyeight" style={{ fontSmooth: "never" }}>
             {currentText}
             {isTyping && <span className="animate-pulse">|</span>}
           </p>
+          {/* only show when user can interact */}
           <button
             onClick={(e) => {
               e.stopPropagation();
 
               if (onYesClick) onYesClick();
             }}
-            className="bg-gray-400 p-1 absolute bottom-[30px] right-auto"
+            className={cn(
+              "absolute bottom-[30px] right-auto",
+              showButton ? "block" : "hidden",
+            )}
+            style={{
+              boxSizing: "border-box",
+              border: "none",
+              background: "#c0c0c0",
+              boxShadow:
+                "inset -1px -1px #0a0a0a, inset 1px 1px #ffffff, inset -2px -2px #808080, inset 2px 2px #dfdfdf",
+              borderRadius: 0,
+
+              minWidth: "75px",
+              minHeight: "23px",
+              padding: "0 12px",
+            }}
           >
             YES!!!
           </button>
